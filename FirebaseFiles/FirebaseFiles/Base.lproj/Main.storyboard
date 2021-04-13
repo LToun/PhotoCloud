@@ -84,6 +84,8 @@
                     <connections>
                         <outlet property="Contra" destination="HNN-GK-3jy" id="BJQ-is-qvQ"/>
                         <outlet property="Correo" destination="mOC-aa-UNG" id="CUS-aA-FQC"/>
+                        <outlet property="labelContra" destination="BgE-Wc-ypb" id="Vl9-hL-MRI"/>
+                        <outlet property="labelCorreo" destination="j6S-mv-UJc" id="OUV-LG-3Ya"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="InicioFotos" modalPresentationStyle="fullScreen" id="HJa-rM-oMB"/>
                     </connections>
                 </viewController>

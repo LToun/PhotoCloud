@@ -9,11 +9,13 @@ import UIKit
 import Firebase
 class InicioSesionViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var labelContra: UILabel!
+    @IBOutlet weak var labelCorreo: UILabel!
+    
     @IBOutlet weak var Contra: UITextField!
     @IBOutlet weak var Correo: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -27,7 +29,11 @@ class InicioSesionViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().signIn(withEmail: email, password: passwd) { (result, error) in
             if let error = error{
                 print(error.localizedDescription)
+                self.labelContra.textColor=UIColor.red
+                self.labelCorreo.textColor=UIColor.red
             } else {
+                self.labelContra.textColor=UIColor.white
+                self.labelCorreo.textColor=UIColor.white
                 print("Inicio sesion")
                 PerformSegue()
             }
@@ -36,6 +42,7 @@ class InicioSesionViewController: UIViewController, UITextFieldDelegate {
         func PerformSegue(){
             performSegue(withIdentifier: "InicioFotos", sender: self)
         }
+
 
     /*
     // MARK: - Navigation
