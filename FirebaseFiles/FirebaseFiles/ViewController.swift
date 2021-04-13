@@ -30,6 +30,7 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         coleccion.delegate=self
         coleccion.dataSource=self
         let nib = UINib.init(nibName: "ImageCollectionViewCell", bundle: nil)
@@ -41,6 +42,7 @@ class ViewController: UIViewController{
 //            button.isEnabled = isButtonEnabled
 //            button.backgroundColor = .red
 //        }
+        bajaDatos()
         downloadImage()
         coleccion.reloadData()
         
@@ -48,19 +50,19 @@ class ViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.coleccion.reloadData()
-        self.storage.reference().child("images/profile/").listAll { (result, erro) in
-            self.images=result.items
-            self.coleccion.reloadData()
-        }
-        print("will")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("did")
     }
-    
+    func bajaDatos(){
+        self.coleccion.reloadData()
+        self.storage.reference().child("images/profile/").listAll { (result, erro) in
+            self.images=result.items
+            self.coleccion.reloadData()
+        }
+    }
     @IBAction func CerrarSesion(_ sender: Any) {
         do{
             try Auth.auth().signOut()
@@ -226,8 +228,8 @@ extension ViewController: UICollectionViewDataSource{
 extension ViewController: UICollectionViewDelegate{
     func collectionView(_ colectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
         colectionView.deselectItem(at: indexPath, animated:true)
-        print("me apretaaste")
-        
+        bajaDatos()
+        coleccion.reloadData()
     }
     
 }
