@@ -99,7 +99,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Regístrate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52l-2l-2KG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Regístrate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52l-2l-2KG">
                                 <rect key="frame" x="32" y="75" width="327" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
@@ -177,6 +177,7 @@
                         <outlet property="correo" destination="KEW-1a-yOR" id="GGO-2X-BQt"/>
                         <outlet property="labelContra1" destination="f4r-OA-eip" id="p2l-ka-Bnv"/>
                         <outlet property="labelContra2" destination="3vx-4b-0z2" id="EJT-r6-Z3T"/>
+                        <outlet property="titulo" destination="52l-2l-2KG" id="PUr-iw-nue"/>
                         <segue destination="Nyp-yJ-VHS" kind="presentation" identifier="RegistroInicio" modalPresentationStyle="fullScreen" id="Q93-JA-kMs"/>
                     </connections>
                 </viewController>

@@ -10,6 +10,7 @@ import Firebase
 
 class RegistroViewController: UIViewController, UITextFieldDelegate{
 
+    @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var labelContra2: UILabel!
     @IBOutlet weak var labelContra1: UILabel!
     @IBOutlet weak var contra2: UITextField!
@@ -27,10 +28,21 @@ class RegistroViewController: UIViewController, UITextFieldDelegate{
     @IBAction func InicioSesion(_ sender: Any) {
         guard let email = correo.text else { return }
         guard let passwd = contra1.text else { return }
-        if (email != nil) && (passwd != nil){
+        guard let passwd2 = contra2.text else { return }
+        if (!email.isEmpty) && (!passwd.isEmpty) && (passwd==passwd2){
             createUser(email: email, password: passwd)
+            performSegue(withIdentifier: "RegistroInicio", sender: self)
         }
-        performSegue(withIdentifier: "RegistroInicio", sender: self)
+        if (passwd != passwd2) {
+            titulo.text="Comprueba la contraseña"
+            labelContra2.textColor=UIColor.red
+            labelContra1.textColor=UIColor.red
+        }
+        else{
+            titulo.font = UIFont.boldSystemFont(ofSize: 1)
+            titulo.text = "Verifique sus datos"
+        }
+        
     }
     func createUser(email: String, password: String){
         
